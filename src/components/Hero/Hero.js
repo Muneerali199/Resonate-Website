@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css';
-import { FaGithub, FaArrowRight, FaChevronRight, FaPlay } from 'react-icons/fa';
+import { FaArrowRight, FaChevronRight, FaPlay } from 'react-icons/fa';
 
 const Hero = () => {
   return (
