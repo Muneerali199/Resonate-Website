@@ -1,0 +1,141 @@
+/* Professional "Budget Buddy" Inspired Theme (Shiny Purple & Dark Void) */
+:root {
+  /* Light Mode - High Contrast Violet/Slate */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fdfbff; /* Very light violet tint */
+  --bg-tertiary: #f5f3ff; /* Violet 50 */
+  --text-primary: #0f172a; /* Slate 900 - Sharper Black for headings */
+  --text-secondary: #334155; /* Slate 700 - Dark Gray for body text (better than purple for reading) */
+  --text-tertiary: #64748b; /* Slate 500 */
+  --border-color: #e2e8f0; /* Slate 200 */
+  
+  /* Brand Colors - Shiny Purple */
+  --brand-primary: #7c3aed; /* Violet 600 */
+  --brand-secondary: #6d28d9; /* Violet 700 */
+  --brand-light: #ddd6fe; /* Violet 200 */
+  
+  --accent-primary: #d946ef; /* Fuchsia 500 */
+  --accent-secondary: #f0abfc; /* Fuchsia 300 */
+  
+  --card-bg: #ffffff;
+  --shadow-subtle: 0 4px 6px -1px rgba(124, 58, 237, 0.1), 0 2px 4px -1px rgba(124, 58, 237, 0.06);
+  --shadow-medium: 0 10px 15px -3px rgba(124, 58, 237, 0.1), 0 4px 6px -2px rgba(124, 58, 237, 0.05);
+  --shadow-brand: 0 0 20px rgba(124, 58, 237, 0.25);
+  
+  --gradient-brand: linear-gradient(135deg, #7c3aed 0%, #d946ef 100%);
+}
+
+/* Dark Mode - Deep Void & Neon Shine */
+:root[data-theme="dark"] {
+  --bg-primary: #030014; /* Deep Void Purple/Black */
+  --bg-secondary: #0f0720; /* Darker Purple tint */
+  --bg-tertiary: #1a1033; /* Deep Purple */
+  --text-primary: #ffffff; /* Pure White */
+  --text-secondary: #e2e8f0; /* Slate 200 - High contrast for readability */
+  --text-tertiary: #94a3b8; /* Slate 400 */
+  --border-color: rgba(139, 92, 246, 0.2); /* Transparent Violet */
+  
+  /* Brand Colors in Dark Mode - Neon */
+  --brand-primary: #8b5cf6; /* Violet 500 */
+  --brand-secondary: #7c3aed; /* Violet 600 */
+  --brand-light: rgba(139, 92, 246, 0.15);
+  
+  --accent-primary: #e879f9; /* Fuchsia 400 */
+  --accent-secondary: #2e1065; /* Violet 950 */
+  
+  --card-bg: rgba(15, 7, 32, 0.7); /* Glassy Dark Purple with higher opacity */
+  
+  /* Gradients & Glows - THE SHINY PART */
+  --glow-primary: radial-gradient(circle at center, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  --glow-accent: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #f472b6 100%); /* Violet -> Fuchsia -> Pink */
+  
+  --gradient-brand: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+  
+  --shadow-brand: 0 0 40px rgba(139, 92, 246, 0.4); /* Intense Purple Glow */
+  --shadow-subtle: 0 4px 20px rgba(0,0,0,0.5);
+  --shadow-medium: 0 0 30px rgba(124, 58, 237, 0.15);
+}
+
+/* Global Transition */
+body {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Specific Overrides */
+:root[data-theme="dark"] .hero {
+  background: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(217, 70, 239, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(124, 58, 237, 0.1) 0px, transparent 50%);
+}
+
+:root[data-theme="dark"] .btn-primary {
+  background: var(--gradient-brand);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+:root[data-theme="dark"] .btn-primary:hover {
+  box-shadow: 0 0 30px rgba(217, 70, 239, 0.6);
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+:root[data-theme="dark"] .btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
+
+:root[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+:root[data-theme="dark"] .description-card {
+  background: rgba(15, 7, 32, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="dark"] .aossie-link {
+  color: #d946ef; /* Fuchsia */
+  border-bottom-color: rgba(217, 70, 239, 0.3);
+}
+
+:root[data-theme="dark"] .aossie-link:hover {
+  color: #f0abfc;
+  border-bottom-color: #d946ef;
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+}
+
+/* Scrollbar Styling - Purple */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4c1d95;
+  border-radius: 5px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d28d9;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(217, 70, 239, 0.4); /* Fuchsia selection */
+  color: white;
+}

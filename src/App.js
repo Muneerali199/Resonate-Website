@@ -17,12 +17,12 @@ function App() {
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5, // Increased for smoother feel
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
       smooth: true,
-      mouseMultiplier: 1,
+      mouseMultiplier: 0.8, // Slightly lower for "heavy" feel
       smoothTouch: false,
       touchMultiplier: 2,
     });
@@ -69,26 +69,20 @@ function App() {
     );
 
     // Features Animation
-    gsap.utils.toArray('.feature-item').forEach((feature, i) => {
-      const image = feature.querySelector('.feature-image');
-      const text = feature.querySelector('.feature-content h3');
+    gsap.utils.toArray('.feature-row').forEach((feature, i) => {
+      // Note: We changed from .feature-item to .feature-row in Features.js
       
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: feature,
-          start: 'top 80%',
+          start: 'top 85%',
           toggleActions: 'play none none reverse'
         }
       });
 
-      tl.fromTo(image,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1, ease: 'power3.out' }
-      )
-      .fromTo(text,
+      tl.fromTo(feature,
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-        "-=0.6"
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
       );
     });
 

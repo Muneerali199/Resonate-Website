@@ -1,24 +1,66 @@
 .download-app-section {
-  padding: 4rem 20px;
+  padding: 6rem 20px;
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 
 .download-app-card {
-  background-color: #1a1a1a;
-  border-radius: 20px;
-  padding: 4rem 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: 32px;
+  padding: 5rem 3rem;
   text-align: center;
   width: 100%;
   max-width: 1000px;
-  color: white;
+  color: var(--text-primary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glassmorphism for Dark Mode */
+:root[data-theme="dark"] .download-app-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient Border Glow on Hover */
+.download-app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -5px rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* Gradient Background Mesh */
+.download-app-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.1), transparent 60%),
+              radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.1), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .download-app-card h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  font-weight: 400;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .store-buttons {
@@ -26,14 +68,37 @@
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.store-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .store-btn img {
-  height: 50px;
+  height: 60px;
   width: auto;
-  transition: transform 0.2s;
+  display: block;
 }
 
-.store-btn:hover img {
-  transform: scale(1.05);
+.store-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.3);
+}
+
+@media (max-width: 768px) {
+  .download-app-card {
+    padding: 3rem 1.5rem;
+  }
+
+  .download-app-card h2 {
+    font-size: 2rem;
+  }
+
+  .store-btn img {
+    height: 48px;
+  }
 }

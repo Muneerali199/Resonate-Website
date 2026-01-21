@@ -3,21 +3,67 @@
 }
 
 .tech-stack {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 4rem 0;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 4rem 3rem;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 32px;
   max-width: 1000px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 6rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glassmorphism Effect for Dark Mode */
+:root[data-theme="dark"] .tech-stack {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect with Gradient Border Glow */
+.tech-stack:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -5px rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.3);
 }
 
 .tech-stack h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 3rem;
-  text-decoration: underline;
-  text-underline-offset: 10px;
   text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  color: var(--text-primary);
+}
+
+/* Gradient Text for Heading */
+.tech-stack h2 {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated Underline */
+.tech-stack h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-brand);
+  border-radius: 2px;
+  opacity: 0.6;
+  filter: blur(1px);
 }
 
 .tech-logos {
@@ -25,17 +71,76 @@
   justify-content: center;
   gap: 4rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .tech-logo {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root[data-theme="dark"] .tech-logo {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-logo:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: var(--bg-primary);
+  border-color: var(--brand-primary);
+  box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.2);
+}
+
+:root[data-theme="dark"] .tech-logo:hover {
+  background: rgba(124, 58, 237, 0.1);
 }
 
 .tech-logo img {
-  height: 50px;
+  height: 32px;
   width: auto;
+  /* Light Mode: Make logo black (fixes white text invisibility) */
+  filter: brightness(0);
+  opacity: 0.8;
+  transition: filter 0.3s ease;
+}
+
+/* Dark Mode: Show original logo colors/white text */
+:root[data-theme="dark"] .tech-logo img {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  opacity: 1;
+}
+
+/* Hover: Show color in Light Mode on hover (optional, but looks nice) */
+.tech-logo:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+:root[data-theme="dark"] .tech-logo:hover img {
+  filter: drop-shadow(0 4px 8px rgba(124, 58, 237, 0.3));
+}
+
+@media (max-width: 768px) {
+  .tech-stack {
+    padding: 3rem 1.5rem;
+  }
+  
+  .tech-logos {
+    gap: 2rem;
+  }
+  
+  .tech-logo {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
 }

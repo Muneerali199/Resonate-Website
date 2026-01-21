@@ -1,36 +1,70 @@
 import React from 'react';
 import './Hero.css';
-import { FaGithub, FaArrowRight } from 'react-icons/fa';
-import phoneImage from '../../assets/resonate_app.png';
+import { FaGithub, FaArrowRight, FaChevronRight, FaPlay } from 'react-icons/fa';
 
 const Hero = () => {
   return (
     <section className="hero">
-      <div className="hero-container">
-        <div className="hero-image">
-          <img src={phoneImage} alt="Resonate App on Phone" />
+      {/* Background Effects */}
+      <div className="retro-grid">
+        <div className="retro-grid-lines">
+          <div className="retro-grid-animate"></div>
         </div>
-        <div className="hero-content">
-          <div className="yellow-gradient-bg"></div>
-          <h1>Clubhouse,<br />but Open Source</h1>
-          <h2>A social voice platform.</h2>
-          <p className="maintained-by">A Project Maintained by <a href="https://aossie.org" className="aossie-link">AOSSIE</a></p>
+        <div className="retro-grid-fade"></div>
+      </div>
+      
+      {/* Floating Orbs */}
+      <div className="orb orb-1"></div>
+      <div className="orb orb-2"></div>
 
-          <div className="hero-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.resonate.resonate" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              Create/Join Room <FaArrowRight />
+      <div className="hero-container">
+        <div className="hero-content">
+          
+          {/* Badge */}
+          <div className="hero-badge animate-fade-in delay-100">
+            <span>Build for everyone</span>
+            <FaChevronRight size={12} />
+          </div>
+
+          <h1 className="hero-title animate-fade-in delay-200">
+            <span>Clubhouse, but</span>
+            <span className="text-gradient">Open Source</span>
+          </h1>
+          
+          <h2 className="hero-subtitle animate-fade-in delay-300">
+            Resonate is a social voice platform that allows you to create and join rooms to chat with people from all over the world.
+          </h2>
+
+          <div className="hero-buttons animate-fade-in delay-400">
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.resonate.resonate" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary"
+            >
+              <span className="btn-text">Get Started</span>
+              <FaArrowRight className="btn-icon" />
             </a>
-            <a href="https://github.com/AOSSIE-Org/Resonate" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              Contribute to the Project <FaGithub />
+            <a 
+              href="https://github.com/AOSSIE-Org/Resonate" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-secondary"
+            >
+              <span className="btn-text">Watch Demo</span>
+              <FaPlay className="btn-icon" size={12} style={{ marginLeft: '8px' }}/>
             </a>
           </div>
-        </div>
-      </div>
 
-      <div className="hero-description-container">
-        <p>
-          With the rising popularity of social voice platforms such as Clubhouse and Twitter Spaces, it is high time for an Open Source alternative. A platform like this would not only enhance credibility within the open-source community but also attract more users and foster growth. An engagement platform that is Open Source has the potential to drive significant traction and help establish a strong presence.
-        </p>
+          <div className="trust-indicators animate-fade-in delay-500">
+            <p className="trust-text">Trusted by Open Source Community</p>
+            <div className="trust-badges">
+              <span>⭐ 4.9/5 Rating</span>
+              <span>🔒 Secure</span>
+              <span>📱 Mobile First</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

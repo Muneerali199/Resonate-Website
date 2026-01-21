@@ -1,7 +1,15 @@
 .footer {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 2rem 0;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 3rem 0;
+  transition: background-color 0.3s ease;
+  border-top: 1px solid var(--border-color);
+}
+
+:root[data-theme="dark"] .footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-tertiary);
 }
 
 .footer-container {
@@ -25,7 +33,12 @@
 
 .copyright {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--text-secondary); /* Fix: Ensure visible contrast in light mode */
+  font-weight: 500;
+}
+
+:root[data-theme="dark"] .copyright {
+  color: var(--text-tertiary);
 }
 
 .footer-socials {
@@ -34,8 +47,8 @@
 }
 
 .footer-socials a {
-  color: #1a1a1a; 
-  background-color: #FFC107;
+  color: var(--bg-primary); 
+  background-color: var(--text-primary);
   width: 44px;
   height: 44px;
   display: flex;
@@ -43,15 +56,27 @@
   justify-content: center;
   border-radius: 50%;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.1rem;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
+:root[data-theme="dark"] .footer-socials a {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
 .footer-socials a:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+:root[data-theme="dark"] .footer-socials a:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .footer-socials a:focus {
